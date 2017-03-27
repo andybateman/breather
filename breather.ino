@@ -1,19 +1,14 @@
 #include <ESP8266WiFi.h>
-#include <ESP8266mDNS.h>
-#include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+#include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 
 const char* ssid = ".hello";
 const char* password = "nope";
 
 void setup() {
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-  while (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    delay(5000);
-    ESP.restart();
-  }
-  ArduinoOTA.setHostname("espD1.1");
+  WiFiManager wifiManager;
+  wifiManager.autoConnect();
+  ArduinoOTA.setHostname("espD1.2");
   ArduinoOTA.setPassword((const char *)password);
   ArduinoOTA.begin();
 }
