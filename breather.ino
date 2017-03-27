@@ -2,7 +2,6 @@
 #include <ArduinoOTA.h>
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 
-const char* ssid = ".hello";
 const char* password = "nope";
 
 void setup() {
